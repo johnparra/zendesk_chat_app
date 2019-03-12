@@ -4,16 +4,40 @@
   <meta charset="utf-8">
   <!-- http://garden.zendesk.com -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@zendeskgarden/css-bedrock@7.0" type="text/css">
-  <link rel="stylesheet" href="main.css" type="text/css">
+  <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
   <h2 class="u-milli">LEARN MORE</h2>
+  <div id="content"></div>
   <script type="text/javascript" src="https://assets.zendesk.com/apps/sdk/2.0/zaf_sdk.js"></script>
   <script src="https://cdn.jsdelivr.net/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/handlebarsjs/4.0.8/handlebars.min.js"></script>
   <script type="text/javascript" src="main.js"></script>
+
+  <script id="search-template" type="text/x-handlebars-template">
+    <form id="search-form">
+    <p>
+      <label for="name" class="c-txt__label u-zeta">Subject</label><br/>
+      <input type="text" name="subject-field" id="subject-field" class="c-txt__input" />
+    </p>
+    <p>
+      <button id="get-btn" class="c-btn">Get article links</button>
+    </p>
+    </form>
+  </script>
+
+  <script id="error-template" type="text/x-handlebars-template">
+    <div class="u-zeta">
+      <p class="u-fg-flamingo"><strong>Something went wrong.</strong></p>
+      <p><strong>Error code</strong>: {{code}}</p>
+      <p><strong>Info</strong>: {{info}}</p>
+    <p>Please report a bug at the link below or <a id="reset-link" href="">reset</a> the form.</p>
+    </div>
+  </script>
+
   <footer>
-    <a href="https://github.com/johnparra/chat_app_scaffold_zendesk/issues/new" target="_blank">Report bugs</a>
+    <a href="https://github.com/johnparra/zendesk_chat_app/issues/new" target="_blank">Report bugs</a>
   </footer>
 </body>
 
